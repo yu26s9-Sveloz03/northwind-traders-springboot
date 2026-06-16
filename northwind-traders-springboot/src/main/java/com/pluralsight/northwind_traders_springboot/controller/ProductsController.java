@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/products")
 public class ProductsController {
 
     private final ProductService productService;
@@ -34,7 +35,7 @@ public class ProductsController {
         return productService.getAllProducts();
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable Long id) {
         return productService.getProductById(id)
                 .map(ResponseEntity::ok)

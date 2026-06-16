@@ -6,18 +6,28 @@ import jakarta.persistence.*;
 @Table(name = "Products")
 public class Product {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int productId;
+    @Column(name = "`ProductID`")
+    private Long productId;
+
+    @Column(name = "`ProductName`")
     private String name;
-    private String category;
+
+    @Column(name = "`CategoryID`")
+    private int category;
+    @Column(name = "`UnitPrice`")
     private double price;
 
-    public int getProductId() {
+
+    public Product() {};
+
+    public Long getProductId() {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(Long productId) {
         this.productId = productId;
     }
 
@@ -29,11 +39,11 @@ public class Product {
         this.name = name;
     }
 
-    public String getCategory() {
+    public int getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(int category) {
         this.category = category;
     }
 
